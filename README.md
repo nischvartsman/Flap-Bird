@@ -1,1 +1,19 @@
-# Flap-Bird
+# Flap Bird Crazy 
+
+# Projeto Final de Desing de Software - DP de Ferias (2022/1)
+
+# Integrantes: 
+- Nina Schvartsman
+- Mariana Albuquerque
+
+# Descrição:
+    Para o Projeto Final de Desing de Software, o grupo decidiu se basear no famoso jogo Flap Bird, onde o objetivo central do jogo é fazer a maior pontuação possível. Para isso, o jogador movimenta o personagem, que esta centralizado no meio da tela, verticalmente a partir do botão dirito do mouse e, ao mesmo tempo, deve evitar os obstáculos propostos pelo jogo. Ao ultrapassar um obstáculo, a pontuação do jogador aumenta, que estará visivel ao lado esquerdo superior da tela. Se o jogador colidir com algum obstáculo, ele perde uma certa quantidade de pontos. O jogo acaba quando a pontuação do jogador voltar a ser zero.
+
+# Como rodar o jogo:
+
+# Vídeo:
+
+# Bibliografia:
+
+# Tecnologias utilizada para a realização do jogo:
+
