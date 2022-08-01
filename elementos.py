@@ -1,10 +1,12 @@
 import pygame
-import os
+from configuracoes import ALTURA
 
 
 
 GALINHA = 'galinha.png'
-LARGUNGA_G = 150
+LARGURA_G = 150
 ALTURA_G = 165
 
 PLANO_DE_FUNDO = 'fundo_fazenda.jpg'
+
+CHAO = ALTURA - 170
