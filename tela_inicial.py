@@ -9,7 +9,7 @@ def tela_inicial(janela):
     plano_de_fundo = pygame.image.load(path.join(DIR_IMG,'fundo_inicial.jpg')).convert()
     plano_de_fundo = pygame.transform.scale(plano_de_fundo,(LARGURA,ALTURA))
     pdf_rect = plano_de_fundo.get_rect()
-    '''fonte = pygame.font.SysFont(None, 60)
+    fonte = pygame.font.SysFont(None, 60)
     titulo = fonte.render('Flappy Chicken', True, (0,0,0))
     integrante1 = fonte.render('Nina Schvartsman', True, (0,0,0))
     integrante1 = pygame.transform.scale(integrante1,(200,20))
@@ -20,7 +20,7 @@ def tela_inicial(janela):
 
     todos_sprites = pygame.sprite.Group()
     grupo = {}
-    grupo['todos_sprites'] = todos_sprites'''
+    grupo['todos_sprites'] = todos_sprites
 
     rodando = True
     while rodando:
@@ -40,9 +40,9 @@ def tela_inicial(janela):
 
         janela.fill(PRETO)  
         janela.blit(plano_de_fundo, pdf_rect)
-        '''janela.blit(titulo, (520,300))
+        janela.blit(titulo, (520,300))
         janela.blit(integrante1, (0,655))
-        janela.blit(integrante2, (0,685))'''
+        janela.blit(integrante2, (0,685))
         #janela.blit(iniciar, (580,370))
 
         #todos_sprites.draw(janela)

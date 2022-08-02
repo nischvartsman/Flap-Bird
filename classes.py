@@ -1,18 +1,18 @@
-import pygame
+import flappy
 from configuracoes import DIR_IMG, DT, LARGURA, ALTURA 
 from os import path
 from elementos import ALTURA_G, LARGURA_G, GALINHA, CHAO
 
-class Player(pygame.sprite.Sprite):
+class Player(flappy.sprite.Sprite):
     def __init__(self, grupo):
-        pygame.sprite.Sprite.__init__(self)
+        flappy.sprite.Sprite.__init__(self)
         self.imagens = []
         for i in range(0,2):
-            self.image = pygame.image.load(path.join(DIR_IMG,GALINHA,'galinha.png'.format(i) )).convert_alpha()
-            self.image = pygame.transform.scale(self.image, (LARGURA_G, ALTURA_G))
+            self.image = flappy.image.load(path.join(DIR_IMG,GALINHA,'galinha.png'.format(i) )).convert_alpha()
+            self.image = flappy.transform.scale(self.image, (LARGURA_G, ALTURA_G))
             self.imagens.append(self.image)
 
-        self.mask = pygame.mask.from_surface(self.image)
+        self.mask = flappy.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
         self.rect.centerx = LARGURA - LARGURA_G/2
         self.rect.bottom = CHAO

@@ -1,4 +1,4 @@
-import pygame
+import flappy
 from configuracoes import ALTURA
 
 
