@@ -1,8 +1,9 @@
 import pygame
-#from classes import Plataforma, Player1, Player2
+from classes import  Player 
 from configuracoes import ALTURA, DIR_IMG,DT,FPS, GAME_OVER, LARGURA,PRETO,QUIT,GAME
 from os import path
 from elementos import ALTURA_G
+import random
 #import Musicas as mus
 
 def gameplay(janela):
@@ -17,9 +18,9 @@ def gameplay(janela):
     grupo = {}
     grupo['todos_sprites'] = todos_sprites
 
-    #jogador1 = Player1(grupo)
-    #todos_sprites.add(jogador1)
-    #jogadores.add(jogador1)
+    jogador = Player(grupo)
+    todos_sprites.add(jogador)
+    jogadores.add(jogador)
 
     direcao1 = 'C'
     direcao2 = 'B'
@@ -33,17 +34,8 @@ def gameplay(janela):
             if evento.type == pygame.QUIT:
                 rodando = QUIT
             if rodando == GAME:
-                if evento.type == pygame.KEYDOWN: 
+                if evento.type == pygame.MOUSEBUTTONDOWN: 
                     tecla[evento.key] = True
-                    if evento.key == pygame.K_UP:
-                        #jogador1.jump()
-                if evento.type == pygame.KEYUP:
-                    if evento.key in tecla and tecla[evento.key]:
-                        if evento.key == pygame.K_LEFT:
-                                    #jogador1.speedx += 8*DT
-                                    
-                        if evento.key == pygame.K_RIGHT:
-                            #jogador1.speedx -= 8*DT
-                                        
-                        if evento.key == pygame.K_DOWN:
-                            encima1 = True
+                    if evento.key == pygame.MOUSEBUTTONUP:
+                        jogador.fly()
+                

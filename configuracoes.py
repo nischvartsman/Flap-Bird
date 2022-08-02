@@ -20,3 +20,11 @@ INIC = 0
 GAME = 1
 GAME_OVER = 2
 QUIT = 3
+VOANDO = False
+V_TELA = 4.2
+F_TRONCO = 1450
+ULT_TRONCO = pygame.time.get_ticks() - F_TRONCO
+PONTUACAO = 0
+
+DESVIO = False
+

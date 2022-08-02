@@ -1,5 +1,4 @@
 import pygame
-import random
 from os import path
 from configuracoes import ALTURA, DIR_IMG,FPS, LARGURA, QUIT, GAME, PRETO
 #from geral import *
@@ -31,21 +30,24 @@ def tela_inicial(janela):
                 rodando = False
             
             if evento.type == pygame.KEYUP:
-                estado = GAME
-                rodando = False
+
+                if evento.key == pygame.K_SPACE:
+
+                    estado = GAME
+                    rodando = False
                 '''if estado == GAME:
                         mixer.music.stop()
                         mus.tocar_musica(musica)'''
-#todos_sprites.update()
+        todos_sprites.update()
 
         janela.fill(PRETO)  
         janela.blit(plano_de_fundo, pdf_rect)
         janela.blit(titulo, (520,300))
         janela.blit(integrante1, (0,655))
         janela.blit(integrante2, (0,685))
-        #janela.blit(iniciar, (580,370))
+        janela.blit(trabalho, (580,370))
 
-        #todos_sprites.draw(janela)
+        todos_sprites.draw(janela)
 
         pygame.display.update()
 

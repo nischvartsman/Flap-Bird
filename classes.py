@@ -9,7 +9,6 @@ class Player(pygame.sprite.Sprite):
         
         self.image = pygame.image.load(path.join(DIR_IMG,GALINHA,'galinha.png')).convert_alpha()
         self.image = pygame.transform.scale(self.image, (LARGURA_G, ALTURA_G))
-    
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
         self.rect.centerx = LARGURA - LARGURA_G/2
@@ -30,6 +29,12 @@ class Player(pygame.sprite.Sprite):
             self.no_chao = True
             self.speedy = 0
             self.rect.bottom = self.chao
+
+    def fly(self):    #VOAR
+        if self.no_chao:
+            self.jumping = True
+            self.speedy -= 20*DT
+            self.no_chao = False 
         
     def update(self):
         
