@@ -1,5 +1,4 @@
 import pygame
-import flappy
 from configuracoes import DIR_IMG, DT, LARGURA, ALTURA 
 from os import path
 from elementos import ALTURA_G, LARGURA_G, GALINHA, CHAO
@@ -10,6 +9,7 @@ class Player(pygame.sprite.Sprite):
         
         self.image = pygame.image.load(path.join(DIR_IMG,GALINHA,'galinha.png')).convert_alpha()
         self.image = pygame.transform.scale(self.image, (LARGURA_G, ALTURA_G))
+    
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
         self.rect.centerx = LARGURA - LARGURA_G/2
