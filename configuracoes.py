@@ -28,3 +28,4 @@ PONTUACAO = 0
 
 DESVIO = False
 
+

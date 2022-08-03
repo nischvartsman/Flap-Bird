@@ -1,4 +1,4 @@
-import flappy
+
 from configuracoes import ALTURA
 
 

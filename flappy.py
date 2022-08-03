@@ -1,8 +1,8 @@
 from os import path
 import pygame
-from configuracoes import INIC, LARGURA, ALTURA, GAME, QUIT, GAME_OVER
+from configuracoes import *
 import tela_inicial as In
-#import Tela_de_jogo as Tj
+import tela_jogo1 as Tj
 #from elementos import MUSICA_MENU
 #import Musicas as mus
 #import finalização as fim
@@ -18,5 +18,14 @@ while game != QUIT:
     
     if game == INIC:
         game = In.tela_inicial(janela)
+    
+    elif game == GAME:
+        game = Tj.gameplay(janela)
+
+    else:
+        game == QUIT
+    
+
 
     pygame.display.update()  
+pygame.quit()
