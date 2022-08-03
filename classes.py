@@ -17,15 +17,27 @@ class Player(pygame.sprite.Sprite):
         self.speedy = VEL
         self.rect.centerx = LARGURA/2 - LARGURA_G
         self.rect.centery = ALTURA/2
-        self.rect.bottom = CHAO
+        #self.rect.bottom = CHAO
         self.y_gravidade = 2
+        self.topo = 0
 
 
     def fly(self):
-        self.speedy -= 10
+        self.speedy = - 1
+        self.topo = self.rect.centery - 100
         
 
     def update(self):
-        self.speedy += GRAVIDADE #gravité
         self.rect.centery += self.speedy
+        if self.speedy > 0:
+            self.speedy += GRAVIDADE #gravité
+        else:
+            self.speedy -= GRAVIDADE
+        if self.rect.centery < self.topo:
+            self.speedy = 1
+        if self.rect.centery > CHAO:
+            self.rect.centery = CHAO
+
+
+
     
