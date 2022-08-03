@@ -25,7 +25,7 @@ while game != QUIT:
         game = Tj.gameplay(janela)
     
     elif game == GAME_OVER:
-        game = fim.tela_final(janela)
+        game = fim.gameover(janela)
 
     else:
         game == QUIT
