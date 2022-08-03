@@ -53,7 +53,7 @@ class Tronco(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect[0] = LARGURA
 
-        ytronco = random.randint(50,350)
+        ytronco = random.randint(50,265)
 
         if invertido:
             self.image = pygame.transform.flip(self.image, False, True)
