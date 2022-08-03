@@ -12,8 +12,9 @@ class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = GALINHA
+        self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
-        self.speedy = 0
+        self.speedy = VEL
         self.rect.centerx = LARGURA/2 - LARGURA_G
         self.rect.centery = ALTURA/2
         self.rect.bottom = CHAO
@@ -21,10 +22,10 @@ class Player(pygame.sprite.Sprite):
 
 
     def fly(self):
-        self.speedy -= 150
+        self.speedy -= 10
         
 
     def update(self):
-        self.rect.centery += 1 #gravité
-    
+        self.speedy += GRAVIDADE #gravité
+        self.rect.centery += self.speedy
     

@@ -9,7 +9,7 @@ ALTURA_G = 165
 
 PLANO_DE_FUNDO = 'fundo_fazenda.jpg'
 
-CHAO = ALTURA - 170
+CHAO = 100
 
 TRONCO = 'tronco_arvore.png'
 LARGURA_T = 150

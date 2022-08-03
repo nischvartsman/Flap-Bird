@@ -18,7 +18,7 @@ def gameplay(janela):
             if event.type == QUIT:
                 pygame.quit()
             
-            if event.type == pygame.KEYUP:
+            if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
 
                     jogador.fly()
