@@ -23,17 +23,19 @@ def gameplay(janela):
 
     tempo_espera = 0
 
-    while True:
+    estado = GAME
+
+    while estado == GAME:
         for event in pygame.event.get():
 
-            if event.type == QUIT:
-                pygame.quit()
-            
+            if event.type == pygame.QUIT:
+                estado = QUIT
+
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     jogador.fly()
 
-        hits = pygame.sprite.spritecollide(jogador,tronco_group,True)
+        hits = pygame.sprite.spritecollide(jogador,tronco_group,True,pygame.sprite.collide_mask)
         if len(hits) > 0:
             Pontuacao.pontos -= 50*len(hits)
             print('Bateu')
@@ -69,4 +71,6 @@ def gameplay(janela):
 
         if Pontuacao.pontos < 0:
             print('perdeu')
-            return
+            estado = GAME_OVER
+
+    return estado 

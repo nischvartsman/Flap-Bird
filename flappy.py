@@ -15,6 +15,7 @@ janela = pygame.display.set_mode((LARGURA, ALTURA))
 pygame.display.set_caption('Flappy Chicken')
 
 game = INIC
+
 while game != QUIT:
     
     if game == INIC:
@@ -29,7 +30,7 @@ while game != QUIT:
     else:
         game == QUIT
     
-
-
     pygame.display.update()  
+
+
 pygame.quit()
