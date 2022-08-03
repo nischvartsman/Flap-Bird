@@ -9,6 +9,9 @@ def gameplay(janela):
     #janela = pygame.display.set_mode((LARGURA,ALTURA))
     plano_jogo = pygame.image.load(path.join(DIR_IMG, 'fundo_fazenda.jpg')).convert()
     plano_jogo = pygame.transform.scale(plano_jogo, (LARGURA,ALTURA))
+
+    fonte = pygame.font.SysFont("comicsansms", 60)
+
     chicken_group = pygame.sprite.Group()
     jogador = Player()
     chicken_group.add(jogador)
@@ -32,6 +35,7 @@ def gameplay(janela):
 
         hits = pygame.sprite.spritecollide(jogador,tronco_group,True)
         if len(hits) > 0:
+            Pontuacao.pontos -= 50*len(hits)
             print('Bateu')
 
         tempo_final = time.time()
@@ -46,6 +50,10 @@ def gameplay(janela):
 
 
         janela.blit(plano_jogo,(0,0))
+
+        pontos = fonte.render('{:04d}'.format(Pontuacao.pontos) , True, (0,0,0))
+
+        janela.blit(pontos,(100,100))
 
         chicken_group.update()
 
