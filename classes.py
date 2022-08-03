@@ -53,7 +53,7 @@ class Tronco(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect[0] = LARGURA
 
-        ytronco = random.randint(50,265)
+        ytronco = random.randint(70,300)
 
         if invertido:
             self.image = pygame.transform.flip(self.image, False, True)
@@ -66,7 +66,7 @@ class Tronco(pygame.sprite.Sprite):
     def update(self):
         self.rect[0] -= VEL
         if self.rect.x < 0:
-            Pontuacao.pontos += 100
+            Pontuacao.pontos += 50
             self.kill()
 
 class Pontuacao():

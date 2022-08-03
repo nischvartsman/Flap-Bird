@@ -25,6 +25,8 @@ def gameplay(janela):
 
     estado = GAME
 
+    Pontuacao.pontos = 0
+
     while estado == GAME:
         for event in pygame.event.get():
 
@@ -37,7 +39,7 @@ def gameplay(janela):
 
         hits = pygame.sprite.spritecollide(jogador,tronco_group,True,pygame.sprite.collide_mask)
         if len(hits) > 0:
-            Pontuacao.pontos -= 50*len(hits)
+            Pontuacao.pontos -= 200*len(hits)
             print('Bateu')
 
         tempo_final = time.time()

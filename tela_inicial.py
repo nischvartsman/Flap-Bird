@@ -12,11 +12,11 @@ def tela_inicial(janela):
     titulo = fonte.render('Flappy Chicken', True, (0,0,0))
     titulo = pygame.transform.scale(titulo,(300,100))
     integrante1 = fonte.render('Nina Schvartsman', True, (0,0,0))
-    integrante1 = pygame.transform.scale(integrante1,(200,20))
+    integrante1 = pygame.transform.scale(integrante1,(200,28))
     integrante2 = fonte.render('Mariana Albuquerque', True, (0,0,0))
-    integrante2 = pygame.transform.scale(integrante2, (180,20))
+    integrante2 = pygame.transform.scale(integrante2, (220,30))
     trabalho =  fonte.render('Aperte espaço para iniciar', True, (0,0,0))
-    trabalho = pygame.transform.scale(trabalho, (210,25))
+    trabalho = pygame.transform.scale(trabalho, (230,45))
 
     todos_sprites = pygame.sprite.Group()
     grupo = {}
@@ -46,7 +46,7 @@ def tela_inicial(janela):
         janela.blit(titulo, (520,300))
         janela.blit(integrante1, (0,655))
         janela.blit(integrante2, (0,685))
-        janela.blit(trabalho, (580,370))
+        janela.blit(trabalho, (560,420))
 
         todos_sprites.draw(janela)
 
