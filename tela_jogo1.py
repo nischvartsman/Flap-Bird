@@ -2,18 +2,20 @@ from email.headerregistry import Group
 from matplotlib.pyplot import hist
 import pygame
 from configuracoes import *
+from elementos import *
 from classes import Level, Player, Tronco, Pontuacao, Ovo
 import time
 import random
 
 def gameplay(janela):
+    
     clock = pygame.time.Clock()
     #janela = pygame.display.set_mode((LARGURA,ALTURA))
     plano_jogo = pygame.image.load(path.join(DIR_IMG, 'fundo_fazenda.jpg')).convert()
     plano_jogo = pygame.transform.scale(plano_jogo, (LARGURA,ALTURA))
 
     fonte = pygame.font.SysFont("comicsansms", 60)
-
+    assets = som_assets()
     chicken_group = pygame.sprite.Group()
     jogador = Player()
     chicken_group.add(jogador)
@@ -49,10 +51,12 @@ def gameplay(janela):
         
         if len(colisao) > 0:
             Pontuacao.pontos += 500*len(colisao)
+            assets['galinha'].play()
             print('pegou ovo')
         
         if len(hits) > 0:
             Pontuacao.pontos -= 1000*len(hits)
+            assets['colisao'].play()
             print('Bateu')
 
         tempo_final = time.time()

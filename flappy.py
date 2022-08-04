@@ -1,10 +1,11 @@
 from os import path
+import py
 import pygame
 from configuracoes import *
 import tela_inicial as In
 import tela_jogo1 as Tj
 import tela_final as fim
-#from elementos import MUSICA_MENU
+
 #import Musicas as mus
 #import finalização as fim
 
@@ -20,7 +21,7 @@ while game != QUIT:
     
     if game == INIC:
         game = In.tela_inicial(janela)
-    
+        
     elif game == GAME:
         game = Tj.gameplay(janela)
     
