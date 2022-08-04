@@ -59,7 +59,17 @@ def gameplay(janela):
 
         if tempo_final - tempo_inicial > tempo_espera:
         
-            tempo_espera = random.uniform(1,3)
+            max = 3
+            if Level.level > 5:
+                max = 2
+            if Level.level > 6:
+                max = 1.5
+            if Level.level > 7:
+                max = 1
+            if Level.level > 8:
+                max = 0.8
+            
+            tempo_espera = random.uniform(0.5,max)
             tempo_inicial = tempo_final
             tronco1  = Tronco(False)
             tronco2 = Tronco(True)
