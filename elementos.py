@@ -14,3 +14,7 @@ CHAO = 740
 TRONCO = 'tronco_arvore.png'
 LARGURA_T = 150
 ALTURA_T = 165
+
+OVO = 'ovo.png'
+LARGURA_OVO = 30
+ALTURA_OVO = 50

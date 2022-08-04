@@ -2,7 +2,7 @@ import pygame
 from configuracoes import *
 from os import path
 from configuracoes import DIR_IMG
-from elementos import CHAO, LARGURA_G, TRONCO
+from elementos import ALTURA_OVO, CHAO, LARGURA_G, LARGURA_OVO, TRONCO
 import random
 
 janela = pygame.display.set_mode((LARGURA,ALTURA))
@@ -12,6 +12,9 @@ GALINHA = pygame.transform.scale(GALINHA,(150,165))
 
 TRONCO =pygame.image.load(path.join(DIR_IMG,'tronco_arvore.png')).convert_alpha()
 TRONCO = pygame.transform.scale(TRONCO,(150,400))
+
+OVO = pygame.image.load(path.join(DIR_IMG,'ovo.png')).convert_alpha()
+OVO = pygame.transform.scale(OVO,(LARGURA_OVO,ALTURA_OVO))
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
@@ -35,7 +38,7 @@ class Player(pygame.sprite.Sprite):
     def update(self):
         self.rect.centery += self.speedy
         if self.speedy > 0:
-            self.speedy += GRAVIDADE #gravité
+            self.speedy += GRAVIDADE 
         else:
             self.speedy -= GRAVIDADE
         if self.rect.centery < self.topo:
@@ -70,4 +73,24 @@ class Tronco(pygame.sprite.Sprite):
             self.kill()
 
 class Pontuacao():
-    pontos = 0
+    pontos = float('inf')
+
+class Ovo(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = OVO
+        self.mask = pygame.mask.from_surface(self.image)
+        self.rect = self.image.get_rect()
+        self.rect.x = random.randint(LARGURA_OVO, LARGURA - LARGURA_OVO)
+        self.rect.y = random.randint(200,600)
+         
+       # self.last_update = pygame.time.get_ticks()  #guarda o momento que a imagem for mostrada
+    def update(self):
+        #agora = pygame.time.get_ticks()
+        #tempo = agora - self.last_update
+
+        if self.rect.top > ALTURA or self.rect.right < 0 or self.rect.left > LARGURA:
+            self.rect.x = random.randint(LARGURA_OVO, LARGURA - LARGURA_OVO)
+            self.rect.y = random.randint(200,600)
+            
+

@@ -1,7 +1,8 @@
+from email.headerregistry import Group
 from matplotlib.pyplot import hist
 import pygame
 from configuracoes import *
-from classes import Player, Tronco, Pontuacao
+from classes import Player, Tronco, Pontuacao, Ovo
 import time
 import random
 
@@ -18,6 +19,10 @@ def gameplay(janela):
 
     tronco_group = pygame.sprite.Group()
 
+    #ovo_group = pygame.sprite.Group()
+    #ovo = Ovo()
+    #ovo_group.add(ovo)
+    
 
     tempo_inicial = time.time()
 
@@ -51,6 +56,8 @@ def gameplay(janela):
             tronco2 = Tronco(True)
             tronco_group.add(tronco1)
             tronco_group.add(tronco2)
+            #ovo = Ovo()
+            #ovo_group.add(ovo)
 
 
         janela.blit(plano_jogo,(0,0))
@@ -66,6 +73,10 @@ def gameplay(janela):
         tronco_group.update()
 
         tronco_group.draw(janela)
+
+        #ovo_group.update()
+
+        #ovo_group.draw(janela)
 
         pygame.display.update()
 
