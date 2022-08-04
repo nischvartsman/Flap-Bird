@@ -1,7 +1,7 @@
 import pygame
 from os import path
-from configuracoes import ALTURA, DIR_IMG,FPS, GAME_OVER, LARGURA, QUIT, GAME, PRETO
-from classes import Pontuacao
+from configuracoes import ALTURA, DIR_IMG,FPS, GAME_OVER, LARGURA, QUIT, GAME, PRETO, VEL
+from classes import Level, Pontuacao
 
 def gameover(janela):
 
@@ -23,6 +23,7 @@ def gameover(janela):
             if evento.type == pygame.KEYDOWN:
                 if evento.key == pygame.K_SPACE:
                     rodando = GAME
+                    Level.level = VEL
             
     
         todos_sprites.update()

@@ -67,30 +67,31 @@ class Tronco(pygame.sprite.Sprite):
         self.mask = pygame.mask.from_surface(self.image)
 
     def update(self):
-        self.rect[0] -= VEL
+        self.rect[0] -= Level.level
         if self.rect.x < 0:
+            Level.level += 0.1
             Pontuacao.pontos += 50
             self.kill()
-
+        
 class Pontuacao():
-    pontos = float('inf')
+    pontos = 0
+
+class Level():
+    level = VEL
 
 class Ovo(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self, ymin, ymax):
         pygame.sprite.Sprite.__init__(self)
         self.image = OVO
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
-        self.rect.x = random.randint(LARGURA_OVO, LARGURA - LARGURA_OVO)
-        self.rect.y = random.randint(200,600)
+        self.rect.x = LARGURA
+        self.rect.y = random.randint(ymin + ALTURA_OVO ,ymax - ALTURA_OVO)
          
        # self.last_update = pygame.time.get_ticks()  #guarda o momento que a imagem for mostrada
     def update(self):
-        #agora = pygame.time.get_ticks()
-        #tempo = agora - self.last_update
-
-        if self.rect.top > ALTURA or self.rect.right < 0 or self.rect.left > LARGURA:
-            self.rect.x = random.randint(LARGURA_OVO, LARGURA - LARGURA_OVO)
-            self.rect.y = random.randint(200,600)
+        self.rect[0] -= Level.level
+        if self.rect.x < 0:
             
+            self.kill()
 

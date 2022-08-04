@@ -1,13 +1,13 @@
 from os import path
 import pygame
-pygame.init()
+
 
 DIR_IMG = path.join(path.dirname(__file__), 'imagens')
 
 DT = 1.5
 LARGURA = 1400
 ALTURA = 780
-FPS = 40
+FPS = 120
 
 BRANCO = (255, 255, 255)
 PRETO = (0, 0, 0)
@@ -20,13 +20,13 @@ INIC = 0
 GAME = 1
 GAME_OVER = 2
 QUIT = 3
-VEL = 1
+VEL = 3
 GRAVIDADE = 0.1
 V_TELA = 4.2
 F_TRONCO = 1450
 ULT_TRONCO = pygame.time.get_ticks() - F_TRONCO
-PONTUACAO = 0
 
-DESVIO = False
+
+
 
 
