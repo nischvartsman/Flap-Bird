@@ -57,7 +57,7 @@ class Tronco(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect[0] = LARGURA
 
-        ytronco = random.randint(70,300) #definindo tamanho dos troncos de forma randômica
+        ytronco = random.randint(70,350) #definindo tamanho dos troncos de forma randômica
 
         if invertido:
             self.image = pygame.transform.flip(self.image, False, True)  #criando tronco na parte de cima da tela
