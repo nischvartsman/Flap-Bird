@@ -29,9 +29,9 @@ def tela_inicial(janela):
 
     rodando = True
     tocando = False
-    while rodando:
+    while rodando: #looping da tela inicial
         if tocando == False:
-            assets['fazendinha'].play(loops = -1)
+            assets['fazendinha'].play(loops = -1) #toca musica de abertura
             tocando = True
         
         tempo_fps.tick(FPS)
@@ -42,7 +42,7 @@ def tela_inicial(janela):
             
             if evento.type == pygame.KEYUP:
 
-                if evento.key == pygame.K_SPACE:
+                if evento.key == pygame.K_SPACE: #quando aperta espaço o jogo começa e a música para
 
                     estado = GAME
                     rodando = False
@@ -50,7 +50,7 @@ def tela_inicial(janela):
                     
                         
                         
-        todos_sprites.update()
+        todos_sprites.update() #atualiza todos os sprites 
 
         janela.fill(PRETO)  
         janela.blit(plano_de_fundo, pdf_rect)

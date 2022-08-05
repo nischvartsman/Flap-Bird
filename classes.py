@@ -17,8 +17,9 @@ TRONCO = pygame.transform.scale(TRONCO,(150,400))
 OVO = pygame.image.load(path.join(DIR_IMG,'ovo.png')).convert_alpha()
 OVO = pygame.transform.scale(OVO,(LARGURA_OVO,ALTURA_OVO))
 
+#classe do jogador
 class Player(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self): #construtor da classe mãe
         pygame.sprite.Sprite.__init__(self)
         self.image = GALINHA
         self.mask = pygame.mask.from_surface(self.image)
@@ -30,12 +31,12 @@ class Player(pygame.sprite.Sprite):
         self.topo = 0
 
 
-    def fly(self):
+    def fly(self):  #funcao que faz a galinha voar
         self.speedy = - 1
         self.topo = self.rect.centery - 100
         
 
-    def update(self):
+    def update(self):  #update da classe
         self.rect.centery += self.speedy
         if self.speedy > 0:
             self.speedy += GRAVIDADE 
@@ -47,7 +48,7 @@ class Player(pygame.sprite.Sprite):
             self.rect.centery = CHAO
 
 
-
+#classe dos troncos
 class Tronco(pygame.sprite.Sprite):
     def __init__(self,invertido):
         pygame.sprite.Sprite.__init__(self)
@@ -56,29 +57,30 @@ class Tronco(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect[0] = LARGURA
 
-        ytronco = random.randint(70,300)
+        ytronco = random.randint(70,300) #definindo tamanho dos troncos de forma randômica
 
         if invertido:
-            self.image = pygame.transform.flip(self.image, False, True)
+            self.image = pygame.transform.flip(self.image, False, True)  #criando tronco na parte de cima da tela
             self.rect[1] = - (self.rect[3] - ytronco)
         else:
             self.rect[1] = ALTURA - ytronco
         
         self.mask = pygame.mask.from_surface(self.image)
 
-    def update(self):
+    def update(self):  #funcao update da classe
         self.rect[0] -= Level.level
         if self.rect.x < 0:
-            Level.level += 0.05
-            Pontuacao.pontos += 50
-            self.kill()
+            Level.level += 0.05 #aumentando a velocidade dos troncos para dificultar o jogo
+            Pontuacao.pontos += 50 #a cada desvio de tronco o jogador ganha 50 pontos 
+            self.kill() #o tronco é destruído após sair da tela
         
-class Pontuacao():
+class Pontuacao(): #classe que conta a pontuação
     pontos = 0
 
-class Level():
+class Level():  #classe que aumenta o nivel de dificuldade do jogo
     level = VEL
 
+#classe do ovo 
 class Ovo(pygame.sprite.Sprite):
     def __init__(self, ymin, ymax):
         pygame.sprite.Sprite.__init__(self)
@@ -86,10 +88,10 @@ class Ovo(pygame.sprite.Sprite):
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
         self.rect.x = LARGURA
-        self.rect.y = random.randint(ymin + ALTURA_OVO ,ymax - ALTURA_OVO)
+        self.rect.y = random.randint(ymin + ALTURA_OVO ,ymax - ALTURA_OVO) #lugar do ovo selecionado de forma randômica a não ficar em cima do tronco
       
     def update(self):
-        self.rect[0] -= Level.level
+        self.rect[0] -= Level.level #aumentando a velocidade do ovo para que o jogador tenha a impressao de que a galinha que esta se movendo
         if self.rect.x < 0:
             
             self.kill()

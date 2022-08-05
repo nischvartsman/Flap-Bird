@@ -23,7 +23,7 @@ OVO = 'ovo.png'
 LARGURA_OVO = 30
 ALTURA_OVO = 50
 
-def som_assets():
+def som_assets(): #funcao que carrega sons do jogo
     assets = {}
 
     pygame.mixer.music.load(path.join(SND_DIR, 'fazendinha.wav'))

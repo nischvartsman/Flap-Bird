@@ -1,6 +1,7 @@
 from os import path
 import pygame
 
+#declarando variáveis universais do jogo
 SND_DIR = path.join(path.dirname(__file__),  'sons')
 DIR_IMG = path.join(path.dirname(__file__), 'imagens')
 

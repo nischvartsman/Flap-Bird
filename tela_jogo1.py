@@ -92,11 +92,12 @@ def gameplay(janela):
 
         janela.blit(plano_jogo,(0,0))
 
-        pontos = fonte.render('{:04d}'.format(Pontuacao.pontos) , True, (0,0,0))
+        pontos = fonte.render('{:04d}'.format(Pontuacao.pontos) , True, (0,0,0)) #imprime pontuação
 
         janela.blit(pontos,(100,100))
 
-        chicken_group.update()
+        #update dos grupos
+        chicken_group.update() 
 
         chicken_group.draw(janela)
 
