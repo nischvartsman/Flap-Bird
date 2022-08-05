@@ -1,7 +1,7 @@
 from os import path
 import pygame
 
-
+SND_DIR = path.join(path.dirname(__file__),  'sons')
 DIR_IMG = path.join(path.dirname(__file__), 'imagens')
 
 DT = 1.5

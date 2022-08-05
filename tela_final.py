@@ -2,7 +2,7 @@ import pygame
 from elementos import som_assets
 from os import path
 from configuracoes import ALTURA, DIR_IMG,FPS, GAME_OVER, LARGURA, QUIT, GAME, PRETO, VEL
-from classes import Level, Pontuacao
+from classes import Level
 
 def gameover(janela):
 

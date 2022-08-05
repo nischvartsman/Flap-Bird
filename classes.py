@@ -7,6 +7,7 @@ import random
 
 janela = pygame.display.set_mode((LARGURA,ALTURA))
 
+#carregando imagens
 GALINHA = pygame.image.load(path.join(DIR_IMG,'galinha.png')).convert_alpha()
 GALINHA = pygame.transform.scale(GALINHA,(150,165))
 
@@ -25,7 +26,6 @@ class Player(pygame.sprite.Sprite):
         self.speedy = VEL
         self.rect.centerx = LARGURA/2 - LARGURA_G
         self.rect.centery = ALTURA/2
-        #self.rect.bottom = CHAO
         self.y_gravidade = 2
         self.topo = 0
 
@@ -69,7 +69,7 @@ class Tronco(pygame.sprite.Sprite):
     def update(self):
         self.rect[0] -= Level.level
         if self.rect.x < 0:
-            Level.level += 0.1
+            Level.level += 0.05
             Pontuacao.pontos += 50
             self.kill()
         
@@ -87,8 +87,7 @@ class Ovo(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = LARGURA
         self.rect.y = random.randint(ymin + ALTURA_OVO ,ymax - ALTURA_OVO)
-         
-       # self.last_update = pygame.time.get_ticks()  #guarda o momento que a imagem for mostrada
+      
     def update(self):
         self.rect[0] -= Level.level
         if self.rect.x < 0:

@@ -6,8 +6,6 @@ import tela_inicial as In
 import tela_jogo1 as Tj
 import tela_final as fim
 
-#import Musicas as mus
-#import finalização as fim
 
 pygame.init()
 pygame.mixer.init()

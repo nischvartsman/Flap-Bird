@@ -1,10 +1,13 @@
 from asyncore import loop
 import pygame
 from os import path
-from configuracoes import ALTURA, DIR_IMG,FPS, LARGURA, QUIT, GAME, PRETO
+from configuracoes import *
 from elementos import *
 
 def tela_inicial(janela):
+    
+    # definindo configuracoes da tela inicial
+    
     assets = som_assets()
     tempo_fps = pygame.time.Clock()
     plano_de_fundo = pygame.image.load(path.join(DIR_IMG,'fundo_inicial.jpg')).convert()

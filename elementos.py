@@ -1,8 +1,10 @@
 from os import path
 import pygame
-from configuracoes import ALTURA
+from configuracoes import ALTURA, SND_DIR
 
-SND_DIR = path.join(path.dirname(__file__),  'sons')
+#definindo elementos do jogo
+
+  
 
 
 GALINHA = 'galinha.png'

@@ -1,5 +1,5 @@
-from email.headerregistry import Group
-from matplotlib.pyplot import hist
+#from email.headerregistry import Group
+#from matplotlib.pyplot import hist
 import pygame
 from configuracoes import *
 from elementos import *
@@ -10,21 +10,22 @@ import random
 def gameplay(janela):
     
     clock = pygame.time.Clock()
-    #janela = pygame.display.set_mode((LARGURA,ALTURA))
+    
     plano_jogo = pygame.image.load(path.join(DIR_IMG, 'fundo_fazenda.jpg')).convert()
     plano_jogo = pygame.transform.scale(plano_jogo, (LARGURA,ALTURA))
 
     fonte = pygame.font.SysFont("comicsansms", 60)
     assets = som_assets()
-    chicken_group = pygame.sprite.Group()
+    
+    #criando grupos
+    chicken_group = pygame.sprite.Group() #grupo jogador
     jogador = Player()
     chicken_group.add(jogador)
 
-    tronco_group = pygame.sprite.Group()
+    tronco_group = pygame.sprite.Group() #grupo tronco
 
-    ovo_group = pygame.sprite.Group()
-    #ovo = Ovo()
-    #ovo_group.add(ovo)
+    ovo_group = pygame.sprite.Group()  #grupo ovo
+
     
 
     tempo_inicial = time.time()
@@ -36,7 +37,7 @@ def gameplay(janela):
     Pontuacao.pontos = 0
 
     while estado == GAME:
-        clock.tick(FPS)
+        clock.tick(FPS)  
         for event in pygame.event.get():
 
             if event.type == pygame.QUIT:
@@ -46,15 +47,15 @@ def gameplay(janela):
                 if event.key == pygame.K_SPACE:
                     jogador.fly()
         
-        colisao = pygame.sprite.spritecollide(jogador,ovo_group,True,pygame.sprite.collide_mask)
-        hits = pygame.sprite.spritecollide(jogador,tronco_group,True,pygame.sprite.collide_mask)
+        colisao = pygame.sprite.spritecollide(jogador,ovo_group,True,pygame.sprite.collide_mask) #colisao tronco e galinha
+        hits = pygame.sprite.spritecollide(jogador,tronco_group,True,pygame.sprite.collide_mask) #colisao galinha e ovo
         
-        if len(colisao) > 0:
+        if len(colisao) > 0:  #caso haja colisao com o ovo
             Pontuacao.pontos += 500*len(colisao)
             assets['galinha'].play()
             print('pegou ovo')
         
-        if len(hits) > 0:
+        if len(hits) > 0:  #caso haja colisao com o tronco
             Pontuacao.pontos -= 1000*len(hits)
             assets['colisao'].play()
             print('Bateu')
@@ -62,7 +63,7 @@ def gameplay(janela):
         tempo_final = time.time()
 
         if tempo_final - tempo_inicial > tempo_espera:
-        
+            #definindo velocidade do jogo 
             max = 3
             if Level.level > 5:
                 max = 2
@@ -73,6 +74,7 @@ def gameplay(janela):
             if Level.level > 8:
                 max = 0.8
             
+            #gerando troncos
             tempo_espera = random.uniform(0.5,max)
             tempo_inicial = tempo_final
             tronco1  = Tronco(False)
@@ -80,6 +82,7 @@ def gameplay(janela):
             tronco_group.add(tronco1)
             tronco_group.add(tronco2)
             
+            #gerando ovos
             if random.uniform(0,1) < 0.3:
                 ymin = tronco2.rect[1] + tronco2.rect[3]
                 ymax = tronco1.rect[1]
