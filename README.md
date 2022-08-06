@@ -11,7 +11,9 @@
 
 # Como rodar o jogo:
 No arquivo "flappy.py", há o looping principal que manipula que tela será exibida no arquivo.Executando o arquivo, o jogo terá início. Para saltar com a galinha, pressione a tecla ESPAÇO
+
 # Vídeo:
+https://youtu.be/YTuXkbvMETM
 
 # Bibliografia:
 Handout de referência da disciplin Design de Software;
