@@ -2,6 +2,7 @@ from os import path
 import pygame
 from configuracoes import ALTURA, SND_DIR
 
+
 #definindo elementos do jogo
 
   
@@ -34,3 +35,4 @@ def som_assets(): #funcao que carrega sons do jogo
     assets['game over'] = pygame.mixer.Sound(path.join(SND_DIR, 'game_over.wav'))
 
     return assets
+
