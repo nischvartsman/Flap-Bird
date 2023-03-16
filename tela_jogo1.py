@@ -6,6 +6,8 @@ from elementos import *
 from classes import Level, Player, Tronco, Pontuacao, Ovo
 import time
 import random
+from inicializacao import *
+
 
 def gameplay(janela):
     
@@ -18,15 +20,7 @@ def gameplay(janela):
     assets = som_assets()
     
     #criando grupos
-    chicken_group = pygame.sprite.Group() #grupo jogador
-    jogador = Player()
-    chicken_group.add(jogador)
-
-    tronco_group = pygame.sprite.Group() #grupo tronco
-
-    ovo_group = pygame.sprite.Group()  #grupo ovo
-
-    
+    chicken_group, tronco_group, ovo_group,jogador = criando_grupos()
 
     tempo_inicial = time.time()
 
